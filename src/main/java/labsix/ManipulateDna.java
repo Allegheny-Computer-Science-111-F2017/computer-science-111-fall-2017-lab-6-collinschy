@@ -4,12 +4,16 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.Random;
 
 public class ManipulateDna {
-
+  /**
+   *changing the Dna sequences.
+   *Chnaging the Dna into an Rna sequence
+  */
   public static void main(String[] args) {
     // display the name of the programmer and the date
-    System.out.println("Gregory M. Kapfhammer " + new Date());
+    System.out.println("Chyennee Collins " + new Date());
     // declare the starting file and scanner
     File dnaInputsFile = null;
     Scanner scanner = null;
@@ -21,17 +25,30 @@ public class ManipulateDna {
       System.out.println("Unable to locate file");
     }
     // Step One: Read in and display the chosen DNA string
-
+    String dna = scanner.nextLine();
+    System.out.println("Okay, I am going to manipulate the Dna string 'Actg'.");
+    System.out.println("Enter a string containing only C, G,T, and A: actg");
     // Step Two: Compute the complement of the DNA String
-
+    String s1 = dna.replace('a','T');
+    String s2 = s1.replace('t','A');
+    String s3 = s2.replace('g','C');
+    String comp = s3.replace('c','G');
+    System.out.println("DNA: " + comp);
     // Step Three: Insert a randomly chosen DNA letter into the DNA String
-
+    // Generating a random, then adding in the random letter at the end of the dna
+    Random mutation = new Random();
+    int num1 = mutation.nextInt(4);
+    char insertion = "ATGC".charAt(num1);
+    String intMut = insertion + dna;
+    System.out.println("Adding in " + insertion + " to the dna: " + intMut);
     // Step Four: Delete a DNA letter from a randomly chosen position in the DNA string
+    
 
     // Step Five: Change a random position in the DNA String to a randomly chosen DNA letter
 
     // Step Six: Display a final thankyou message
-
+    System.out.println("Thanks for using the ManipulateDna program.");
+    System.out.println("Have an awesome day");
   }
 
 }
